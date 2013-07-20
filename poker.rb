@@ -130,8 +130,10 @@ class Poker
   def display_match_message
     if @winner == @player
       display_font("You win!!", MATCH_MESSAGE_X, MATCH_MESSAGE_Y, [255, 153, 0])
-    else
+    elsif @winner == @dealer
       display_font("You lose...", MATCH_MESSAGE_X, MATCH_MESSAGE_Y, [102, 102, 255])
+    else
+      display_font("Draw", MATCH_MESSAGE_X, MATCH_MESSAGE_Y, [255, 255, 0])
     end
   end
 

@@ -48,19 +48,14 @@ module PokerLogic
   # 役判定
   # 役が同じときのために、判定用の配列も返す
   def eval_hand(hand_cards)
-    pair_count = 0
-    three_kinds = false
-    four_kinds = false
-
     nums = hand_cards.map {|card| card.number}.sort
     suits = hand_cards.map {|card| card.suit}
+    nums_pairs = nums.map {|num| nums.count(num)}
 
     # ペア系の判定
-    nums.each do |num|
-      pair_count += 1 if nums.count(num) == 2
-      three_kinds = true if nums.count(num) == 3
-      four_kinds = true if nums.count(num) == 4
-    end
+    pair_count = nums_pairs.count(2)
+    three_kinds = nums_pairs.include?(3)
+    four_kinds = nums_pairs.include?(4)
 
     # 他の役の判定
     flush = suits.uniq.size == 1
