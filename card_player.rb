@@ -8,6 +8,7 @@ module CardPlayer
       make_hand
     end
 
+    # 手札を指定した枚数揃えてソートする
     def make_hand
       @hand = Array.new(@hand_num) { @deck.deal }
       @hand.sort_by! {|card| card.number}
@@ -24,6 +25,7 @@ module CardPlayer
       @hand.sort_by! {|card| card.number}
     end
 
+    # フラグが立っているカードを全て捨てる
     def discard
       @hand.delete_if {|card| card.clicked}
     end
