@@ -50,6 +50,7 @@ module PokerLogic
   def eval_hand(hand_cards)
     nums = hand_cards.map {|card| card.number}.sort
     suits = hand_cards.map {|card| card.suit}
+    # 手札内の同じ数字の枚数の配列
     nums_pairs = nums.map {|num| nums.count(num)}
 
     # ペア系の判定
