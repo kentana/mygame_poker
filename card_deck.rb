@@ -15,7 +15,7 @@ module CardDeck
         %w( Spades Clubs Diamonds Hearts )
       end
 
-      # 裏面をカードの情報と無関係に表示する
+      # カードの情報がなくても裏面だけ表示
       def back(x, y)
         back_card = Image.new("images/uraaka.png")
         back_card.x = x
